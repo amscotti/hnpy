@@ -4,16 +4,13 @@ FROM python:3.13-slim
 # Set working directory
 WORKDIR /app
 
-# Install uv for dependency management
-RUN pip install uv
-
 # Copy dependency files
-COPY pyproject.toml uv.lock ./
+COPY pyproject.toml .
 
-# Install dependencies
-RUN uv sync --frozen --no-install-project
+# Install dependency
+RUN pip install .
 
 COPY hnpy/ hnpy/
 COPY main.py .
 
-ENTRYPOINT ["uv", "run", "python", "main.py"]
+ENTRYPOINT ["python", "main.py"]
