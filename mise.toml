@@ -1,0 +1,21 @@
+[tools]
+uv = "latest"
+
+[tasks."lint:format"]
+description = "Run ruff format"
+run = "uv run ruff format"
+
+[tasks."lint:check"]
+description = "Run ruff check"
+run = "uv run ruff check ."
+
+[tasks."lint:type"]
+description = "Run mypy to check the project's types"
+run = "uv run mypy ."
+
+[tasks.lint]
+depends = ["lint:*"]
+
+[tasks."uv:sync"]
+description = 'Runs uv sync'
+run = "uv sync"

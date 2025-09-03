@@ -1,0 +1,19 @@
+[project]
+name = "hnpy"
+version = "0.1.0"
+description = "Lightweight Python CLI tool for fetching and displaying top stories from Hacker News"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "httpx>=0.28.1",
+    "rich>=14.1.0",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.17.1",
+    "ruff>=0.12.11",
+]
+
+[tool.mypy]
+strict = true
